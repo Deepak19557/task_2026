@@ -1,0 +1,408 @@
+/* Cogie Auth Styling */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.cogie-auth-layout {
+  margin: 0;
+  padding: 0;
+  background-color: #030008;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cogie-auth-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  background-color: #04010a;
+  background-image: 
+    radial-gradient(circle at 8% 12%, rgba(225, 20, 130, 0.45) 0%, transparent 35%),
+    radial-gradient(circle at 92% 88%, rgba(225, 20, 130, 0.4) 0%, transparent 38%),
+    radial-gradient(circle at 85% 72%, rgba(0, 160, 255, 0.25) 0%, transparent 30%),
+    url('/login_page_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.cogie-auth-card {
+  width: 100%;
+  max-width: 920px;
+  min-height: 620px;
+  background: #000000;
+  border-radius: 36px;
+  display: flex;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(220, 30, 130, 0.2);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Left Visual Panel */
+.cogie-visual-panel {
+  flex: 1 1 50%;
+  max-width: 50%;
+  padding: 14px;
+  box-sizing: border-box;
+  display: flex;
+  background: #000000;
+}
+
+.cogie-visual-inner {
+  width: 100%;
+  height: 100%;
+  min-height: 592px;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  background: #04010a url('/login_left_panel.jpg') center center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Right Form Panel */
+.cogie-form-panel {
+  flex: 1 1 50%;
+  max-width: 50%;
+  background: #ffffff;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  padding: 36px 40px 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cogie-brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.cogie-brand-img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
+.cogie-auth-content {
+  width: 100%;
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.cogie-auth-content.cogie-edit-content {
+  max-width: 330px;
+}
+
+.cogie-form-hint {
+  font-size: 10.5px;
+  color: #9ca3af;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.cogie-edit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #f3f4f6;
+  font-size: 11.5px;
+}
+
+.cogie-back-link {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.cogie-back-link:hover {
+  color: #111827;
+}
+
+.cogie-btn-danger-link {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 0;
+  transition: color 0.15s ease;
+  font-family: inherit;
+}
+
+.cogie-btn-danger-link:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+.cogie-auth-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 27px;
+  font-weight: 500;
+  color: #111827;
+  text-align: center;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.4px;
+}
+
+.cogie-auth-subtitle {
+  font-size: 11.5px;
+  color: #71717a;
+  text-align: center;
+  margin: 0 0 24px 0;
+  line-height: 1.4;
+}
+
+/* Form inputs */
+.cogie-auth-form {
+  width: 100%;
+}
+
+.cogie-form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.cogie-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #27272a;
+  margin-bottom: 5px;
+}
+
+.cogie-input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f3f4f8;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: #18181b;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cogie-input:focus {
+  background-color: #ffffff;
+  border-color: #d4d4d8;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+.cogie-input::placeholder {
+  color: #a1a1aa;
+  font-size: 12px;
+}
+
+/* Password wrapper */
+.cogie-password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.cogie-password-wrapper .cogie-input {
+  padding-right: 36px;
+}
+
+.cogie-toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.cogie-toggle-password:hover {
+  color: #4b5563;
+}
+
+.cogie-toggle-password svg {
+  display: block;
+}
+
+/* Options row */
+.cogie-options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.cogie-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cogie-checkbox {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  accent-color: #000000;
+  cursor: pointer;
+  margin: 0;
+}
+
+.cogie-forgot-link {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 11.5px;
+  transition: color 0.15s ease;
+}
+
+.cogie-forgot-link:hover {
+  color: #111827;
+}
+
+/* Action buttons */
+.cogie-actions {
+  margin-bottom: 10px;
+}
+
+.cogie-btn-submit {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10.5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.cogie-btn-submit:hover {
+  background: #27272a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cogie-btn-submit:active {
+  transform: translateY(0);
+}
+
+.cogie-social-actions {
+  margin-bottom: 4px;
+}
+
+.cogie-btn-google {
+  width: 100%;
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 9.5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cogie-btn-google:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+/* Footer link */
+.cogie-auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 11.5px;
+}
+
+.cogie-footer-text {
+  color: #71717a;
+}
+
+.cogie-signup-link {
+  color: #09090b;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.15s ease;
+}
+
+.cogie-signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Flash alerts */
+.cogie-flash {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.cogie-flash-notice {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.cogie-flash-alert {
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .cogie-auth-card {
+    flex-direction: column;
+    max-width: 420px;
+    min-height: auto;
+    border-radius: 28px;
+  }
+
+  .cogie-visual-panel {
+    display: none;
+  }
+
+  .cogie-form-panel {
+    max-width: 100%;
+    flex: 1 1 100%;
+    border-radius: 28px;
+    padding: 36px 28px;
+  }
+}

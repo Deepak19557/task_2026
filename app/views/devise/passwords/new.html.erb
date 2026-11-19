@@ -1,0 +1,50 @@
+<div class="cogie-auth-page">
+  <div class="cogie-auth-card">
+    
+    <!-- Left Visual Panel -->
+    <div class="cogie-visual-panel">
+      <div class="cogie-visual-inner" role="img" aria-label="A Wise Quote: Get Everything You Want. You can get everything you want if you work hard, trust the process, and stick to the plan.">
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="cogie-form-panel">
+      <!-- Brand Logo -->
+      <div class="cogie-brand-header">
+        <img src="/cogie_logo_transparent.png" alt="Cogie" class="cogie-brand-img">
+      </div>
+
+      <div class="cogie-auth-content">
+        <h1 class="cogie-auth-title">Reset Password</h1>
+        <p class="cogie-auth-subtitle">Enter your email and we'll send you reset instructions</p>
+
+        <% if notice %>
+          <div class="cogie-flash cogie-flash-notice"><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class="cogie-flash cogie-flash-alert"><%= alert %></div>
+        <% end %>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "cogie-auth-form" }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="cogie-form-group">
+            <%= f.label :email, "Email", class: "cogie-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email", class: "cogie-input", required: true %>
+          </div>
+
+          <div class="cogie-actions" style="margin-top: 20px;">
+            <%= f.submit "Send Reset Instructions", class: "cogie-btn-submit" %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Footer Link -->
+      <div class="cogie-auth-footer">
+        <span class="cogie-footer-text">Remember your password?</span>
+        <%= link_to "Sign In", new_session_path(resource_name), class: "cogie-signup-link" %>
+      </div>
+    </div>
+
+  </div>
+</div>

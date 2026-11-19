@@ -1,0 +1,70 @@
+<div class="cogie-auth-page">
+  <div class="cogie-auth-card">
+    
+    <!-- Left Visual Panel -->
+    <div class="cogie-visual-panel">
+      <div class="cogie-visual-inner" role="img" aria-label="A Wise Quote: Get Everything You Want. You can get everything you want if you work hard, trust the process, and stick to the plan.">
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="cogie-form-panel">
+      <!-- Brand Logo -->
+      <div class="cogie-brand-header">
+        <img src="/cogie_logo_transparent.png" alt="Cogie" class="cogie-brand-img">
+      </div>
+
+      <div class="cogie-auth-content">
+        <h1 class="cogie-auth-title">Create Account</h1>
+        <p class="cogie-auth-subtitle">Enter your details below to create your account</p>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "cogie-auth-form" }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div style="display: flex; gap: 10px;">
+            <div class="cogie-form-group" style="flex: 1;">
+              <%= f.label :first_name, "First Name", class: "cogie-label" %>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", placeholder: "First name", class: "cogie-input", required: true %>
+            </div>
+
+            <div class="cogie-form-group" style="flex: 1;">
+              <%= f.label :last_name, "Last Name", class: "cogie-label" %>
+              <%= f.text_field :last_name, autocomplete: "family-name", placeholder: "Last name", class: "cogie-input", required: true %>
+            </div>
+          </div>
+
+          <div class="cogie-form-group">
+            <%= f.label :age, "Age", class: "cogie-label" %>
+            <%= f.number_field :age, min: 1, max: 120, placeholder: "Your age", class: "cogie-input" %>
+          </div>
+
+          <div class="cogie-form-group">
+            <%= f.label :email, "Email", class: "cogie-label" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: "Enter your email", class: "cogie-input", required: true %>
+          </div>
+
+          <div class="cogie-form-group">
+            <%= f.label :password, "Password", class: "cogie-label" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Create a password", class: "cogie-input", required: true %>
+          </div>
+
+          <div class="cogie-form-group">
+            <%= f.label :password_confirmation, "Confirm Password", class: "cogie-label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class: "cogie-input", required: true %>
+          </div>
+
+          <div class="cogie-actions" style="margin-top: 18px;">
+            <%= f.submit "Create Account", class: "cogie-btn-submit" %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Footer Link -->
+      <div class="cogie-auth-footer">
+        <span class="cogie-footer-text">Already have an account?</span>
+        <%= link_to "Sign In", new_session_path(resource_name), class: "cogie-signup-link" %>
+      </div>
+    </div>
+
+  </div>
+</div>

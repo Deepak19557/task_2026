@@ -1,0 +1,107 @@
+<div class="cogie-auth-page">
+  <div class="cogie-auth-card">
+    
+    <!-- Left Visual Panel -->
+    <div class="cogie-visual-panel">
+      <div class="cogie-visual-inner" role="img" aria-label="A Wise Quote: Get Everything You Want. You can get everything you want if you work hard, trust the process, and stick to the plan.">
+        <!-- Visual artwork from reference image -->
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="cogie-form-panel">
+      <!-- Brand Logo -->
+      <div class="cogie-brand-header">
+        <img src="/cogie_logo_transparent.png" alt="Cogie" class="cogie-brand-img">
+      </div>
+
+      <div class="cogie-auth-content">
+        <h1 class="cogie-auth-title">Welcome Back</h1>
+        <p class="cogie-auth-subtitle">Enter your email and password to access your account</p>
+
+        <% if notice %>
+          <div class="cogie-flash cogie-flash-notice"><%= notice %></div>
+        <% end %>
+        <% if alert %>
+          <div class="cogie-flash cogie-flash-alert"><%= alert %></div>
+        <% end %>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "cogie-auth-form" }) do |f| %>
+          <div class="cogie-form-group">
+            <%= f.label :email, "Email", class: "cogie-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email", class: "cogie-input", required: true %>
+          </div>
+
+          <div class="cogie-form-group">
+            <%= f.label :password, "Password", class: "cogie-label" %>
+            <div class="cogie-password-wrapper">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter your password", class: "cogie-input", id: "user_password_input", required: true %>
+              <button type="button" class="cogie-toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility" tabindex="-1">
+                <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="cogie-options-row">
+            <% if devise_mapping.rememberable? %>
+              <label class="cogie-checkbox-label">
+                <%= f.check_box :remember_me, class: "cogie-checkbox" %>
+                <span>Remember me</span>
+              </label>
+            <% end %>
+
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Forgot Password", new_password_path(resource_name), class: "cogie-forgot-link" %>
+            <% end %>
+          </div>
+
+          <div class="cogie-actions">
+            <%= f.submit "Sign In", class: "cogie-btn-submit" %>
+          </div>
+
+          <div class="cogie-social-actions">
+            <button type="button" class="cogie-btn-google">
+              <svg width="18" height="18" viewBox="0 0 18 18">
+                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.616z"/>
+                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.039l3.007-2.332z"/>
+                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z"/>
+              </svg>
+              <span>Sign In with Google</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Footer Link -->
+      <div class="cogie-auth-footer">
+        <span class="cogie-footer-text">Don't have an account?</span>
+        <%= link_to "Sign Up", new_registration_path(resource_name), class: "cogie-signup-link" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var toggleBtn = document.getElementById("togglePasswordBtn");
+    var passwordInput = document.getElementById("user_password_input");
+    var eyeIcon = document.getElementById("eyeIcon");
+
+    if (toggleBtn && passwordInput && eyeIcon) {
+      toggleBtn.addEventListener("click", function() {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+        } else {
+          passwordInput.type = "password";
+          eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
+        }
+      });
+    }
+  });
+</script>
